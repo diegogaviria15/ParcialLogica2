@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,8 +40,12 @@ namespace ParcialLogica2
              */
         static void Main(string[] args)
         {
-            int numero = 0, numeroingresado = 0, limite = 0, participantes=0, ganador =0;
+            int numero = 0, numeroIngresado = 0, limite = 0, participantes=0, ganador =0;
             Random random = new Random();
+            bool sinGanador = true;
+            bool juego=true, decisionJuego=true; 
+            string decision = "";
+
 
             do
             {
@@ -82,10 +87,63 @@ namespace ParcialLogica2
 
                 Console.WriteLine("###################################################");
                 Console.WriteLine("#   Bienvenidos al Juego a los {0} participantes  #",participantes);
-                Console.WriteLine("###################################################");
+                Console.WriteLine("###################################################\n");
 
 
+                do
+                {
+                    for (int i = 1; i <=participantes; i++)
+                    {
+                        Console.Write("Jugador {0}, por favor ingrese su numero entre 0 y {1}: ",i,limite);
+                        numeroIngresado = int.Parse(Console.ReadLine());
 
+                        if (numeroIngresado==numero)
+                        {
+                            Console.WriteLine("GANASTE, FELICITACIONES, EL NUMERO {0} ES EL NUMERO CORRECTO\n", numeroIngresado);
+                            ganador = i;
+                            sinGanador = false;
+                            break;
+                        }
+                        else if (numeroIngresado>numero)
+                        {
+                            Console.WriteLine("Fallaste, el numero secreto es menor al numero que ingresaste, sigue intentando\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Fallaste, el numero secreto es mayor al numero que ingresaste, sigue intentando\n");
+                        }
+                    }
+                } while (sinGanador);
+
+                Console.WriteLine("EL GANADOR ES EL JUGADOR {0}\n", ganador);
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Console.ReadKey();
+                Console.Clear();
+
+                do
+                {
+                    Console.WriteLine("Desea volver a jugar? s/n");
+                    decision = Console.ReadLine().ToLower();
+
+                    switch (decision)
+                    {
+                        case "s":
+                            decisionJuego = false;
+                            Console.Clear();
+                            break;
+                        case "n":
+                            decisionJuego = false;
+                            juego = false;
+                            break;
+                        default:
+                            Console.WriteLine("Porfavor escoja una opción valida s = Si y n= No");
+                            Console.WriteLine("Presiones cualquier tecla para continuar");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                    }
+                } while (decisionJuego);
+                
             } while (true);
         }
     }
