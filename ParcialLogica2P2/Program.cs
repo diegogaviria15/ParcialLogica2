@@ -38,7 +38,7 @@ namespace ParcialLogica2P2
             int cantidadSocios = 0, multaSocio1 = 0, multaSocio2 = 0;
             bool hayPrestamoSocio1 = false, hayPrestamoSocio2 = false, natillera = true;
             double intereMes = 0;
-            string desicionSocio1 = "", desicionSocio2 = "";
+            string desicionSocio1 = "", desicionSocio2 = "", desicionNatillera="";
 
             Random random= new Random();
 
@@ -196,6 +196,52 @@ namespace ParcialLogica2P2
                     Console.WriteLine("El total del socio 2: {0}", ahorroTotalSocio2 - (prestamoSocio2 + (multaSocio2 * 20000)));
                     Console.WriteLine("------------------------------------------------------");
                 }
+                Console.Write("\n");
+                Console.Write("\n");
+                Console.Write("\n");
+                do
+                {
+                    Console.WriteLine("¿Desea calcular un nuevo año de la natillera? s/ n");
+                    desicionNatillera = Console.ReadLine().ToLower();
+
+                    if (desicionNatillera=="n")
+                    {
+                        natillera=false;
+                        break;
+                    }
+                    else if (desicionNatillera=="s")
+                    {
+                        abonoSocio1 = 0;
+                        ahorroTotalSocio1 = 0;
+                        bonificacionesSocio1 = 0;
+                        interesesSocio1 = 0;
+                        interesesTotalesSocio1 = 0;
+                        prestamoSocio1 = 0;
+                        abonosTotalesSocio1 = 0;
+                        bonoSocio1 = 0;
+                        abonoSocio2 = 0;
+                        ahorroTotalSocio2 = 0;
+                        bonificacionesSocio2 = 0;
+                        interesesSocio2 = 0;
+                        interesesTotalesSocio2 = 0;
+                        prestamoSocio2 = 0;
+                        abonosTotalesSocio2 = 0;
+                        bonoSocio2 = 0;
+                        cantidadSocios = 0;
+                        multaSocio1 = 0;
+                        multaSocio2 = 0;
+                        hayPrestamoSocio1 = false;
+                        hayPrestamoSocio2 = false;
+                        natillera = true;
+                        intereMes = 0;
+                        desicionSocio1 = "";
+                        desicionSocio2 = "";
+                        desicionNatillera = "";
+                        break;
+                    }
+
+                } while (true);
+
 
             } while (natillera);
 
