@@ -42,7 +42,32 @@ namespace ParcialLogica2
             int numero = 0, numeroingresado = 0, limite = 0, participantes=0, ganador =0;
             Random random = new Random();
 
+            do
+            {
+                numero = random.Next(0, 101);
+                do
+                {
+                    Console.Write("Por favor ingrese el numero de jugadores, recuerde, deben de haber minimo 2 jugadores y maximo 4 jugadores: ");
+                    participantes = int.Parse(Console.ReadLine());
+                    if (participantes>=2 && participantes<=4)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Por favor ingrese un numero de participantes correcto.");
+                        Console.WriteLine("Presione cualquier tecla para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
 
+                } while (true);
+
+                
+
+                
+
+            } while (true);
         }
     }
 }
