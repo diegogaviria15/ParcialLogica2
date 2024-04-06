@@ -49,6 +49,10 @@ namespace ParcialLogica2
 
             do
             {
+                sinGanador = true;
+                juego = true;
+                decisionJuego = true;
+                
                 
                 do
                 {
@@ -94,7 +98,7 @@ namespace ParcialLogica2
                 {
                     for (int i = 1; i <=participantes; i++)
                     {
-                        Console.Write("Jugador {0}, por favor ingrese su numero entre 0 y {1}: ",i,limite);
+                        Console.Write("Jugador {0}, por favor ingrese su numero entre 0 y {1}: ",i,limite-1);
                         numeroIngresado = int.Parse(Console.ReadLine());
 
                         if (numeroIngresado==numero)
@@ -144,7 +148,7 @@ namespace ParcialLogica2
                     }
                 } while (decisionJuego);
                 
-            } while (true);
+            } while (juego);
         }
     }
 }
