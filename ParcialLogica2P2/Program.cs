@@ -169,6 +169,17 @@ namespace ParcialLogica2P2
                     }
                 }
 
+                Console.WriteLine("Este es el reporte Anual del socio 1: ");
+                Console.WriteLine("Los aportes totales del socio 1 son: {0}",abonosTotalesSocio1);
+                Console.WriteLine("Los interes ganandos totales del socio 1: {0}",interesesTotalesSocio1);
+                Console.WriteLine("Los bonos totales del socio 1 {0}: ",bonificacionesSocio1);
+                Console.WriteLine("Las sumatoria de multas totales del socio 1: {0}",multaSocio1*20000);
+                Console.WriteLine("La deuda total por prestamos del socio 1: {0}", prestamoSocio1);
+                Console.WriteLine("------------------------------------------------------");
+                Console.WriteLine("La suma de las ganancias del socio 1 son: {0}", ahorroTotalSocio1);
+                Console.WriteLine("La suma de las perdidas totales del socio 1 son {0}", prestamoSocio1 + (multaSocio1 * 20000));
+                Console.WriteLine("El total del socio 1: {0}", ahorroTotalSocio1 - (prestamoSocio1 + (multaSocio1 * 20000)));
+
             } while (natillera);
 
 
