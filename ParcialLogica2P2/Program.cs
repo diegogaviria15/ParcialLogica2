@@ -72,8 +72,8 @@ namespace ParcialLogica2P2
 
                 for (int i = 1; i <=12; i++)
                 {
-                    intereMes = random.Next(1, 51) / 100;
-
+                    intereMes = random.Next(1, 51);
+                    intereMes = intereMes * 0.001;
                     Console.Write("Por favor ingrese el aporte del mes {0} del socio 1: ", i);
                     abonoSocio1 = decimal.Parse(Console.ReadLine());
                     interesesSocio1 = abonoSocio1 * Convert.ToDecimal(intereMes);
@@ -83,7 +83,7 @@ namespace ParcialLogica2P2
                     {
                         multaSocio1++;
                     }
-                    if (intereMes<1.5)
+                    if (intereMes<0.015)
                     {
                         bonoSocio1 = 25000;
                         bonificacionesSocio1 += bonoSocio1;
