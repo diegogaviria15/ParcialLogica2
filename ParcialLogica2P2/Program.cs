@@ -38,6 +38,7 @@ namespace ParcialLogica2P2
             int cantidadSocios = 0, multaSocio1 = 0, multaSocio2 = 0;
             bool hayPrestamoSocio1 = false, hayPrestamoSocio2 = false, natillera = true;
             double intereMes = 0;
+            string desicionSocio1 = "", desicionSocio2 = "";
 
             Random random= new Random();
 
@@ -91,6 +92,34 @@ namespace ParcialLogica2P2
                     {
                         bonoSocio1 = 0;
                     }
+                    if (hayPrestamoSocio1)
+                    {
+                        prestamoSocio1 += prestamoSocio1 * Convert.ToDecimal(0.025);
+                    }
+                    ahorroTotalSocio1 = abonosTotalesSocio1 + interesesTotalesSocio1 + bonificacionesSocio1-(multaSocio1*20000);
+                    if (hayPrestamoSocio1==false)
+                    {
+                        Console.WriteLine("\n¿El socio 1 desea tomar un prestamos? s/n");
+                        desicionSocio1 = Console.ReadLine().ToLower();
+                        if (desicionSocio1 == "s")
+                        {
+                            desicionSocio1 = "";
+                            Console.WriteLine("Ingrese monto del prestamos a solicitar, recuerde que debe ser menor que su ahorro actual");
+                            Console.Write("Prestamo para el socio 1: ");
+                            prestamoSocio1 = decimal.Parse(Console.ReadLine());
+                            if (prestamoSocio1 > ahorroTotalSocio1)
+                            {
+                                Console.WriteLine("Su solicitud es rechazada debido a que el monto del prestamos es mayor al monto de su ahorro actual");
+                                prestamoSocio1 = 0;
+                            }
+                            else
+                            {
+                                hayPrestamoSocio1 = true;
+                            }
+                        }
+                    }
+                    
+                    
 
                     if (cantidadSocios==2)
                     {
