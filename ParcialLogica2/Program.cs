@@ -44,7 +44,7 @@ namespace ParcialLogica2
 
             do
             {
-                numero = random.Next(0, 101);
+                
                 do
                 {
                     Console.Write("Por favor ingrese el numero de jugadores, recuerde, deben de haber minimo 2 jugadores y maximo 4 jugadores: ");
@@ -63,9 +63,28 @@ namespace ParcialLogica2
 
                 } while (true);
 
-                
+                switch (participantes)
+                {
+                    case 2:
+                        limite = 51;
+                        break;
+                    case 3:
+                        limite = 101;
+                        break;
+                    case 4:
+                        limite = 201;
+                        break;
+                    default:
+                        break;
+                }
 
-                
+                numero = random.Next(0, limite);
+
+                Console.WriteLine("###################################################");
+                Console.WriteLine("#   Bienvenidos al Juego a los {0} participantes  #",participantes);
+                Console.WriteLine("###################################################");
+
+
 
             } while (true);
         }
