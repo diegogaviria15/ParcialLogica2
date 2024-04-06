@@ -91,6 +91,28 @@ namespace ParcialLogica2P2
                     {
                         bonoSocio1 = 0;
                     }
+
+                    if (cantidadSocios==2)
+                    {
+                        Console.Write("Por favor ingrese el aporte del mes {0} del socio 2: ", i);
+                        abonoSocio2 = decimal.Parse(Console.ReadLine());
+                        interesesSocio2 = abonoSocio2 * Convert.ToDecimal(intereMes);
+                        abonosTotalesSocio2 += abonoSocio2;
+                        interesesTotalesSocio2 += interesesSocio2;
+                        if (abonoSocio2 == 0)
+                        {
+                            multaSocio2++;
+                        }
+                        if (intereMes < 1.5)
+                        {
+                            bonoSocio2 = 25000;
+                            bonificacionesSocio2 += bonoSocio2;
+                        }
+                        else
+                        {
+                            bonoSocio2 = 0;
+                        }
+                    }
                 }
 
             } while (natillera);
