@@ -117,9 +117,7 @@ namespace ParcialLogica2P2
                                 hayPrestamoSocio1 = true;
                             }
                         }
-                    }
-                    
-                    
+                    }                  
 
                     if (cantidadSocios==2)
                     {
@@ -140,6 +138,33 @@ namespace ParcialLogica2P2
                         else
                         {
                             bonoSocio2 = 0;
+                        }
+
+                        if (hayPrestamoSocio2)
+                        {
+                            prestamoSocio2 += prestamoSocio2 * Convert.ToDecimal(0.025);
+                        }
+                        ahorroTotalSocio2 = abonosTotalesSocio2 + interesesTotalesSocio2 + bonificacionesSocio2 - (multaSocio2 * 20000);
+                        if (hayPrestamoSocio2 == false)
+                        {
+                            Console.WriteLine("\n¿El socio 2 desea tomar un prestamos? s/n");
+                            desicionSocio2 = Console.ReadLine().ToLower();
+                            if (desicionSocio2 == "s")
+                            {
+                                desicionSocio2 = "";
+                                Console.WriteLine("Ingrese monto del prestamos a solicitar, recuerde que debe ser menor que su ahorro actual");
+                                Console.Write("Prestamo para el socio 2: ");
+                                prestamoSocio2 = decimal.Parse(Console.ReadLine());
+                                if (prestamoSocio2 > ahorroTotalSocio2)
+                                {
+                                    Console.WriteLine("Su solicitud es rechazada debido a que el monto del prestamos es mayor al monto de su ahorro actual");
+                                    prestamoSocio2 = 0;
+                                }
+                                else
+                                {
+                                    hayPrestamoSocio2 = true;
+                                }
+                            }
                         }
                     }
                 }
