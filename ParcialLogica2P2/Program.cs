@@ -33,10 +33,11 @@ namespace ParcialLogica2P2
          */
         static void Main(string[] args)
         {
-            decimal abonoSocio1 = 0, ahorroTotalSocio1 = 0, bonificacionesSocio1 = 0, interesesSocio1 = 0, interesesTotalesSocio1 = 0, prestamoSocio1=0;
-            decimal abonoSocio2 = 0, ahorroTotalSocio2 = 0, bonificacionesSocio2 = 0, interesesSocio2 = 0, interesesTotalesSocio2 = 0, prestamoSocio2=0;
+            decimal abonoSocio1 = 0, ahorroTotalSocio1 = 0, bonificacionesSocio1 = 0, interesesSocio1 = 0, interesesTotalesSocio1 = 0, prestamoSocio1=0, abonosTotalesSocio1=0, bonoSocio1=0;
+            decimal abonoSocio2 = 0, ahorroTotalSocio2 = 0, bonificacionesSocio2 = 0, interesesSocio2 = 0, interesesTotalesSocio2 = 0, prestamoSocio2=0, abonosTotalesSocio2 = 0, bonoSocio2 = 0;
             int cantidadSocios = 0, multaSocio1 = 0, multaSocio2 = 0;
             bool hayPrestamoSocio1 = false, hayPrestamoSocio2 = false, natillera = true;
+            double intereMes = 0;
 
             Random random= new Random();
 
@@ -67,6 +68,30 @@ namespace ParcialLogica2P2
                         Console.WriteLine("###################################################\n");
                     }
                 } while (true);
+
+                for (int i = 1; i <=12; i++)
+                {
+                    intereMes = random.Next(1, 51) / 100;
+
+                    Console.Write("Por favor ingrese el aporte del mes {0} del socio 1: ", i);
+                    abonoSocio1 = decimal.Parse(Console.ReadLine());
+                    interesesSocio1 = abonoSocio1 * Convert.ToDecimal(intereMes);
+                    abonosTotalesSocio1 += abonoSocio1;
+                    interesesTotalesSocio1 += interesesSocio1;
+                    if (abonoSocio1==0)
+                    {
+                        multaSocio1++;
+                    }
+                    if (intereMes<1.5)
+                    {
+                        bonoSocio1 = 25000;
+                        bonificacionesSocio1 += bonoSocio1;
+                    }
+                    else
+                    {
+                        bonoSocio1 = 0;
+                    }
+                }
 
             } while (natillera);
 
